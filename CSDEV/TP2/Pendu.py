@@ -13,11 +13,15 @@ def lectureDoc():
     return listMOt
 
 def Mot(listeMot):
+    corresp={"è":"e","é":"e","â":"a","ê":"e","ï":"i"}
     i=random.randint(0, len(listeMot))
     choix=listeMot[i]
     lettre=[]
     for lt in choix:
-        lettre.append(lt)
+        if lt in corresp:
+            lettre.append(corresp[lt])
+        else:
+            lettre.append(lt)
     return lettre
 
 def Affichage(mot, lettreDevine):

@@ -13,7 +13,7 @@ while partie:
 
     dejaDevine, vie=Pendu.Correspondance(motADeviner,motADeviner[0], dejaDevine, vie)
 
-    print(motADeviner)
+    #print(motADeviner)
 
     while continuer:
         testU=Pendu.Utilisateur()
@@ -30,13 +30,12 @@ while partie:
         meilleurScore=vie
     
     print("c'est fini")
-
+    print("le mot a deviner était: "+"".join(motADeviner))
     nouvellePartie=input('voulez vous recommencer:(o/n): ')
     if nouvellePartie.lower()=="n":
         partie=False  
 
 print("merci bye")
-
 
 
 
