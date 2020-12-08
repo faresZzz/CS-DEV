@@ -25,35 +25,31 @@ def Mot(listeMot):
     return lettre
 
 def Affichage(mot, lettreDevine):
-    
+    listeAffiche=[]
     for lettre in mot:
         if lettre in lettreDevine:
-            print(lettre, end=" ")
+            listeAffiche.append(lettre)
         else:
-            print("_", end=" ")
-    print('')
+            listeAffiche.append("_")
+    return listeAffiche
 
     
-def Utilisateur():
-    lettreUtilisateur=input("choisir une lettre: ")
-    
-    return lettreUtilisateur.lower()
 
 
-def Correspondance(motDevine,testUtilisateur,Dites , compteur):
-    
+def Correspondance(motDevine,testUtilisateur,Devine , compteur):
+    listeAffiche=[]
     if testUtilisateur in motDevine:
         occurence= motDevine.count(testUtilisateur)
         for i in range(occurence):
-            Dites.append(testUtilisateur)
+            Devine.append(testUtilisateur)
         
-        Affichage(motDevine,Dites)
+        listeAffiche= Affichage(motDevine,Devine)
         
     else:
         compteur=compteur-1
-        Affichage(motDevine,Dites)
-        print("il vous reste: ",compteur,' vies')
-    return Dites, compteur
+        listeAffiche=Affichage(motDevine,Devine)    
+        return Devine, compteur,listeAffiche
+
 
 def FinDEPArtie(vie,motadeviner,lettreDejaDevine):
     valRen=True
